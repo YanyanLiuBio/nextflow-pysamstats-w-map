@@ -11,9 +11,9 @@ workflow {
      * sample_id,bam,ref
      * S1,s3://bucket/sample1.bam,s3://bucket/ref.fa
      */
-
-    bam_ref_ch = Channel
-        .fromPath(params.samplesheet)
+  
+    
+    bam_ref_ch = channel.fromPath( params.samplesheet )
         .splitCsv(header: true)
         .map { row ->
             tuple(
